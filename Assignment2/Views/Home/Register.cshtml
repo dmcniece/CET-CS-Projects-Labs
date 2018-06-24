@@ -1,0 +1,52 @@
+﻿@model Assignment2.Models.User
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-controller="Home" asp-action="RegisterUser" method="post">
+    <div class="form-group">
+        <label for="FirstName">First Name:</label>
+        <input asp-for="FirstName" class="form-control" id="FirstName">
+    </div>
+    <div class="form-group">
+        <label for="LastName">Last Name:</label>
+        <input asp-for="LastName" class="form-control" id="LastName">
+    </div>
+    <div class="form-group">
+        <label for="EmailAddress">Email Address:</label>
+        <input asp-for="EmailAddress" type="email" class="form-control" id="EmailAddress">
+    </div>
+    <div class="form-group">
+        <label for="Password">Password:</label>
+        <input asp-for="Password" type="password" class="form-control" id="Password">
+    </div>
+    <div class="form-group">
+        <label for="DateOfBirth">Date of Birth:</label>
+        <input asp-for="DateOfBirth" type="date" class="form-control" id="DateOfBirth">
+    </div>
+    <div class="form-group">
+        <label for="City">City:</label>
+        <input asp-for="City" type="text" class="form-control" id="City">
+    </div>
+    <div class="form-group">
+        <label for="Address">Address:</label>
+        <input asp-for="Address" type="text" class="form-control" id="Address">
+    </div>
+    <div class="form-group">
+        <label for="PostalCode">Postal Code:</label>
+        <input asp-for="PostalCode" type="text" class="form-control" id="PostalCode">
+    </div>
+    <div class="form-group">
+        <label for="Country">Country:</label>
+        <input asp-for="Country" type="text" class="form-control" id="Country">
+    </div>
+    <div class="form-group radio">
+        <label><input type="radio" name="RoleId" value="1">General User</label>
+    </div>
+    <div class="form-group radio">
+        <label><input type="radio" name="RoleId" value="2">Blog Poster</label>
+    </div>
+    @*<input type="hidden" value="1" name="RoleId" />*@
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
