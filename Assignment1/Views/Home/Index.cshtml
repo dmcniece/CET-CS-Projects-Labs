@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Assignment1.Models.BlogPost>
+@using Microsoft.AspNetCore.Http;
+@{ 
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string id = Context.Session.GetString("UserId");
+}
+
+@*<h1>@ViewBag.UserId</h1>*@
+<h1>@id</h1>
+@foreach(var item in Model)
+{
+    @*<p>@item.Title</p>*@
+    <a asp-controller="Home" asp-action="DisplayFullBlogPost" asp-route-id="@item.BlogPostId">@item.Title</a>
+    @if(item.Content.Length >= 100)
+    {
+        <p>@item.Content.Substring(0,99)</p>
+
+    }
+    else
+    {
+
+        <p>@item.Content</p>
+    }
+    <p>@item.Posted</p>
+    @if (Context.Session.GetInt32("UserRoleId") == 2)
+    {
+        <a asp-controller="Home" asp-action="EditBlogPost" asp-route-id="@item.BlogPostId">Edit Blog Post</a>
+        <hr style="background-color: white;" />
+        <br />
+        <br />
+
+    }
+    else
+    {
+       <hr style="background-color: white;" />
+
+    }
+}

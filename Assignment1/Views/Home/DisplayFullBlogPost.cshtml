@@ -1,0 +1,66 @@
+﻿@model Assignment1.Models.BlogPost
+@using Microsoft.AspNetCore.Http;
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var id = Convert.ToInt32(ViewBag.UserId);
+}
+<h1>@Model.Title</h1>
+<h4>By @ViewBag.BlogPosterFirstName @ViewBag.BlogPosterLastName</h4>
+<hr />
+<p>Posted on @Model.Posted</p>
+<hr />
+<p>@Model.Content</p>
+    
+@*<p>@Model.Title</p>
+<p>@Model.Content</p>
+<p>@Model.Posted</p>
+<p>@Model.UserId</p>
+<p>@ViewBag.BlogPosterEmail</p>
+<p>@ViewBag.BlogPosterFirstName @ViewBag.BlogPosterLastName</p>*@
+
+@*<p>@ViewBag.Comments</p>*@
+<hr />
+  <!-- Comments Form -->
+<div class="card my-4">
+    <h5 class="card-header">Leave a Comment:</h5>
+    <div class="card-body">
+        <form asp-controller="Home" asp-action="AddComment" asp-route-blogPostId="@Model.BlogPostId" asp-route-userId="@Model.UserId" asp-route-content="Content" method="post">
+            <input type="hidden" value="@Model.BlogPostId" name="BlogPostId" />
+            <input type="hidden" value="@Context.Session.GetString("UserId")" name="UserId" />
+            <div class="form-group">
+                <textarea name="Content" class="form-control" rows="5" id="Content"></textarea>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+@{ 
+    int i = 0;
+}
+@foreach(var comment in ViewBag.Comments)
+{
+    <div class="media mb-4">
+        <div class="media-body">
+            <h5 class="mt-0">@ViewBag.CommentAuthors[i]</h5>
+            @comment
+        </div>
+    </div>
+    i++;
+    @*<p>@comment</p>*@
+}
+@*@if (ViewBag.Error == "" || ViewBag.Error == null)
+{
+    <div class="container">
+        <form asp-controller="Home" asp-action="AddComment" asp-route-blogPostId="@Model.BlogPostId" asp-route-userId="@Model.UserId" asp-route-content="Content" method="post">
+            <input type="hidden" value="@Model.BlogPostId" name="BlogPostId"/>
+            <input type="hidden" value="@Model.UserId" name="UserId" />
+            <div class="form-group">
+                <label for="Comment">Comment:</label>
+                <textarea name="Content" class="form-control" rows="5" id="Content"></textarea>
+                 <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </form>
+    </div>
+
+}*@
