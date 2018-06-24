@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Lab4B.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <table class="table table-striped table-hover table-responsive">
+            <thead>
+                <tr>
+                    <th>
+
+                    </th>
+                    <th>
+                        Movie Title
+                    </th>
+                    <th>
+                        Movie SubTitle
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Year
+                    </th>
+                    <th>
+                        Rating
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <a class="btn btn-xs btn-primary" asp-controller="Home" asp-action="EditMovie" asp-route-id="@item.MovieId">Edit</a>
+                        </td>
+                        <td>@item.Title</td>
+                        <td>@item.SubTitle</td>
+                        <td>@item.Description</td>
+                        <td>@item.Year</td>
+                        <td>@item.Rating/5</td>
+                        <td>
+                            <a class="btn btn-xs btn-danger" asp-controller="Home" asp-action="DeleteMovie" asp-route-id="@item.MovieId" onclick="return confirm('Are you sure?');">Delete</a>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+        <br />
+        <br />
+        <br />
+    </div>
+</div>
+

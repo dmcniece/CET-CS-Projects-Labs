@@ -1,0 +1,33 @@
+﻿@model Lab4B.Models.Movie
+@{
+    ViewBag.Title = "Add Movie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+        <h2>Add Movie</h2>
+
+        <form asp-controller="Home" asp-action="CreateMovie" method="post">
+            <div class="form-group">
+                <label for="Title">Title</label>
+                <input class="form-control" id="Title" name="Title" value="" type="text" data-val="true" data-val-length="The field Title must be a string with a maximum length of 1000." data-val-length-max="1000" data-val-required="The Title field is required." />
+            </div>
+            <div class="form-group">
+                <label for="SubTitle">SubTitle</label>
+                <input  class="form-control" type="text" data-val="true" data-val-length="The field SubTitle must be a string with a maximum length of 1000." data-val-length-max="1000" data-val-required="The SubTitle field is required." id="SubTitle" name="SubTitle" value="" />
+            </div>
+            <div class="form-group">
+                <label for="Description">Description</label>
+                <textarea class="form-control" id="Description" name="Description" value="" rows="10" data-val="true" data-val-length="The field Description must be a string with a maximum length of 1000." data-val-length-max="1000" data-val-required="The Description field is required."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="Year">Year</label>
+                <input class="form-control" id="Year" name="Year" value="" type="date" data-val="true" data-val-required="The Year field is required." />
+            </div>
+            <div class="form-group">
+                <label for="Rating">Rating</label>
+                <input class="form-control" name="Rating" id="Rating" value="" type="number" data-val="true" data-val-range="The field Rating must be between 1 and 5." data-val-range-max="5" data-val-range-min="1" data-val-required="The Rating field is required." />
+            </div>
+            <br />
+            <input type="submit" value="Add Movie" class="btn btn-default" />
+            </form>
+  

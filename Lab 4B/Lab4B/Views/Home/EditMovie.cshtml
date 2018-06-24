@@ -1,0 +1,37 @@
+﻿@model Lab4B.Models.Movie
+@{
+    ViewBag.Title = "Edit Movie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ 
+        <h2>Edit Movie</h2>
+
+        <form asp-controller="Home" asp-action="ModifyMovie" method="post">
+    <input type="hidden" value="@Model.MovieId" name="MovieId" />
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input class="form-control" asp-for="Title" type="text" data-val="true" data-val-length="The field Title must be a string with a maximum length of 1000." data-val-length-max="1000" data-val-required="The Title field is required." />
+
+    </div>
+    <div class="form-group">
+        <label for="SubTitle">SubTitle</label>
+        <input class="form-control" asp-for="SubTitle" type="text" data-val="true" data-val-length="The field SubTitle must be a string with a maximum length of 1000." data-val-length-max="1000" data-val-required="The SubTitle field is required." />
+
+    </div>
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <textarea class="form-control" asp-for="Description" rows="10" data-val="true" data-val-length="The field Description must be a string with a maximum length of 1000." data-val-length-max="1000" data-val-required="The Description field is required."></textarea>
+
+    </div>
+    <div class="form-group">
+        <label for="Year">Year</label>
+        <input class="form-control" asp-for="Year" type="date" data-val="true" data-val-required="The Year field is required." />
+    </div>
+    <div class="form-group">
+        <label for="Rating">Rating</label>
+        <input class="form-control" asp-for="Rating" type="number" data-val="true" data-val-range="The field Rating must be between 1 and 5." data-val-range-max="5" data-val-range-min="1" data-val-required="The Rating field is required." />
+    </div>
+    <br />
+    <input type="submit" value="Edit Movie" class="btn btn-default" />
+</form>
+
