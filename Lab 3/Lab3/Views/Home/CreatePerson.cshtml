@@ -1,0 +1,49 @@
+﻿<html>
+
+<head>
+    <title>Create Person</title>
+</head>
+
+<body>
+    <h3>Create Person</h3>
+
+    <form action="/Home/DisplayPerson" method="post">
+        <table>
+            <tr>
+                <td>First Name:</td>
+                <td><input type="text" name="firstName" /></td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td><input type="text" name="lastName" /></td>
+            </tr>
+            <tr>
+                <td>Age:</td>
+                <td><input type="number" name="age" /></td>
+            </tr>
+            <tr>
+                <td>Email Address:</td>
+                <td><input type="email" name="emailAddress" /></td>
+            </tr>
+            <tr>
+                <td>Date of Birth:</td>
+                <td><input type="date" name="dateOfBirth" /></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="password" /></td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td><input type="text" height="75" multiple name="description" /></td>
+            </tr>
+        </table>
+        <input type="submit" value="Submit" />
+        </form>
+        <br />
+        <br />
+        <br />
+        <br />
+        <a asp-controller="Home" asp-action="Index">Go Back To Home</a>
+</body>
+</html>

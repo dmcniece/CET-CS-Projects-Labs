@@ -1,0 +1,52 @@
+﻿@{
+    string firstName = Context.Request.Form["firstName"];
+    string lastName = Context.Request.Form["lastName"];
+    string age = Context.Request.Form["age"];
+    string emailAddress = Context.Request.Form["emailAddress"];
+    string dob = Context.Request.Form["dateOfBirth"];
+    string password = Context.Request.Form["password"];
+    string description = Context.Request.Form["description"];
+}
+<html>
+<head>
+    <title>Display Person</title>
+</head>
+<body>
+    <h3>Display Person</h3>
+    <table>
+        <tr>
+            <td>First Name:</td>
+            <td>@firstName</td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td>@lastName</td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td>@age</td>
+        </tr>
+        <tr>
+            <td>Email Address:</td>
+            <td>@emailAddress</td>
+        </tr>
+        <tr>
+            <td>Date Of Birth:</td>
+            <td>@dob</td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>@password</td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td>@description</td>
+        </tr>
+    </table>
+    <br />
+    <br />
+    <br />
+    <br />
+    <a asp-controller="Home" asp-action="Index">Go Back To Home</a>
+</body>
+</html>

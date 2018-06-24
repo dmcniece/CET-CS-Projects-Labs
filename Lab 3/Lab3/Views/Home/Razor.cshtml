@@ -1,0 +1,55 @@
+﻿
+
+<html>
+<head>
+    <title>Razor</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            
+            padding-right: 80px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Table</h3>
+    <table>
+        <tr>
+            @for (var i = 1; i <= 40; i++)
+            {
+                <td>@i</td>
+                @if (i % 10 == 0)
+                {
+
+                <tr></tr>
+                }
+
+            }
+            </tr>
+        </table>
+
+        <h3>99 Bottles of Beer</h3>
+        @for (var i = 99; i > 0; i--)
+        {
+            <p>@i Bottles of beer on the wall, @i bottles of beer. You take one down, you pass it around, @(i - 1)</p>
+            @if (i % 20 == 0)
+            {
+                <p>WOOO!</p>
+
+            }
+            @if (i == 49)
+            {
+                <p>awwww :(</p>
+
+            }
+
+        }
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <a asp-controller="Home" asp-action="Index">Go Back To Home</a>
+    </body>
+</html>
